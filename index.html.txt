@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shield (Web MVP)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div>
+        <h1>Shield</h1>
+        <p class="subtitle">Paste a message or link. Get a risk score + why.</p>
+      </div>
+      <div class="badge">MVP</div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1) Paste suspicious content</h2>
+        <p class="muted">SMS, email, DM, marketplace chat — anything.</p>
+
+        <textarea id="inputText" placeholder="Example:
+Your bank account is suspended. Verify immediately: https://secure-login-verify-now-123.com"></textarea>
+
+        <div class="row">
+          <button id="analyzeBtn" class="primary">Analyze</button>
+          <button id="clearBtn" class="ghost">Clear</button>
+          <button id="demoBtn" class="ghost">Load demo</button>
+        </div>
+
+        <div class="tips">
+          <div class="tip">
+            <strong>Tip:</strong> If there’s a link, include it. Links are the #1 phishing vector.
+          </div>
+          <div class="tip">
+            <strong>Privacy:</strong> In this MVP, analysis runs locally in your browser.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2) Result</h2>
+
+        <div class="scoreBox">
+          <div class="scoreLabel">Risk score</div>
+          <div id="score" class="score">–</div>
+          <div id="scoreTag" class="tag">Paste text and press Analyze</div>
+        </div>
+
+        <div class="cardInner">
+          <h3>Why it was flagged</h3>
+          <ul id="reasons" class="list"></ul>
+        </div>
+
+        <div class="cardInner">
+          <h3>Links found</h3>
+          <div id="links" class="links muted">–</div>
+        </div>
+
+        <div class="cardInner">
+          <h3>Recommended action</h3>
+          <div id="action" class="actionBox">–</div>
+        </div>
+
+        <div class="disclaimer">
+          Shield is a risk assistant, not a guarantee. Never share BankID codes, passwords, or OTPs.
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Shield Web MVP • Client-side risk scoring</span>
+    </footer>
+  </div>
+
+  <script src="./shield.js"></script>
+</body>
+</html>
